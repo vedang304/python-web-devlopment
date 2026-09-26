@@ -1,0 +1,465 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8fafc;
+    color: #1e293b;
+}
+
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+    width: 100%;
+    padding: 18px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.logo span {
+    color: #2563eb;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #475569;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #2563eb;
+}
+
+.logout-btn {
+    padding: 9px 17px;
+
+    border-radius: 7px;
+
+    background: #eff6ff;
+
+    color: #2563eb !important;
+}
+
+
+/* ================= MAIN CONTAINER ================= */
+
+.requests-container {
+    width: 86%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 50px 0;
+}
+
+
+/* ================= HEADER ================= */
+
+.requests-header {
+    margin-bottom: 35px;
+}
+
+.tagline {
+    color: #2563eb;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 10px;
+}
+
+.requests-header h1 {
+    font-size: 38px;
+
+    color: #0f172a;
+
+    margin-bottom: 10px;
+}
+
+.requests-header > p:last-child {
+    color: #64748b;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+/* ================= REQUEST CARD ================= */
+
+.request-card {
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 15px;
+
+    margin-bottom: 18px;
+
+    transition: 0.3s;
+}
+
+.request-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(
+            15,
+            23,
+            42,
+            0.07
+        );
+}
+
+
+/* ================= AVATAR ================= */
+
+.request-avatar {
+    width: 62px;
+    height: 62px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #2563eb;
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 25px;
+
+    font-weight: 700;
+}
+
+
+/* ================= REQUEST INFO ================= */
+
+.request-info {
+    flex: 1;
+}
+
+.request-info h2 {
+    color: #0f172a;
+
+    font-size: 19px;
+
+    margin-bottom: 5px;
+}
+
+.request-info > p {
+    color: #64748b;
+
+    font-size: 13px;
+
+    margin-bottom: 12px;
+}
+
+.request-skills {
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.request-skills span {
+    padding: 7px 10px;
+
+    background: #f8fafc;
+
+    border-radius: 6px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+.request-skills strong {
+    color: #2563eb;
+}
+
+
+/* ================= ACTIONS ================= */
+
+.request-actions {
+    display: flex;
+
+    gap: 10px;
+
+    flex-shrink: 0;
+}
+
+.accept-btn,
+.reject-btn {
+    padding: 10px 18px;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+
+/* ACCEPT */
+
+.accept-btn {
+    background: #2563eb;
+
+    color: white;
+}
+
+.accept-btn:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+}
+
+
+/* REJECT */
+
+.reject-btn {
+    background: #f1f5f9;
+
+    color: #475569;
+
+    border: 1px solid #e2e8f0;
+}
+
+.reject-btn:hover {
+    background: #e2e8f0;
+
+    color: #1e293b;
+}
+
+
+/* ================= NO REQUESTS ================= */
+
+.no-requests {
+    padding: 70px 30px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 15px;
+}
+
+.no-request-icon {
+    font-size: 45px;
+
+    margin-bottom: 15px;
+}
+
+.no-requests h2 {
+    color: #0f172a;
+
+    font-size: 23px;
+
+    margin-bottom: 10px;
+}
+
+.no-requests p {
+    color: #64748b;
+
+    font-size: 14px;
+
+    margin-bottom: 22px;
+}
+
+.no-requests a {
+    display: inline-block;
+
+    padding: 11px 18px;
+
+    background: #2563eb;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+.no-requests a:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 25px;
+
+    text-align: center;
+
+    background: #0f172a;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .request-card {
+        flex-wrap: wrap;
+    }
+
+    .request-info {
+        min-width: 70%;
+    }
+
+    .request-actions {
+        width: 100%;
+
+        margin-top: 5px;
+    }
+
+    .accept-btn,
+    .reject-btn {
+        flex: 1;
+
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 18px 5%;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+    .requests-container {
+        width: 90%;
+
+        padding: 35px 0;
+    }
+
+    .requests-header h1 {
+        font-size: 30px;
+    }
+
+    .request-card {
+        padding: 20px;
+
+        align-items: flex-start;
+    }
+
+    .request-info {
+        min-width: 0;
+
+        width: calc(100% - 82px);
+    }
+
+    .request-actions {
+        flex-direction: column;
+    }
+
+    .accept-btn,
+    .reject-btn {
+        width: 100%;
+    }
+
+    /* ================= FLASH MESSAGE ================= */
+
+.flash-message {
+    padding: 14px 18px;
+
+    margin-bottom: 25px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.flash-message.success {
+    background: #dcfce7;
+
+    color: #166534;
+
+    border: 1px solid #bbf7d0;
+}
+
+.flash-message.error {
+    background: #fee2e2;
+
+    color: #991b1b;
+
+    border: 1px solid #fecaca;
+}
+}

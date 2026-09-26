@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Profile - SkillLoop</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='profile_style.css') }}">
+
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Skill<span>Loop</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('requests') }}">
+                Requests
+            </a>
+
+            <a href="{{ url_for('matches') }}">
+                Matches
+            </a>
+
+            <a href="{{ url_for('progress') }}">
+                Progress
+            </a>
+
+            <a href="{{ url_for('profile') }}">
+                Profile
+            </a>
+
+            <a href="{{ url_for('logout') }}"
+               class="logout-btn">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= PROFILE ================= -->
+
+    <main class="profile-container">
+
+        <!-- PROFILE HEADER -->
+
+        <section class="profile-header">
+
+            <div class="profile-avatar">
+                {{ user[1][0].upper() }}
+            </div>
+
+            <div class="profile-info">
+
+                <h1>
+                    {{ user[1] }}
+                </h1>
+
+                <p>
+                    {{ user[2] }}
+                </p>
+
+                <span class="level-badge">
+                    {{ user[6].title() }}
+                </span>
+
+            </div>
+
+            <a href="{{ url_for('edit_profile') }}"
+               class="edit-profile-btn">
+
+                ✏️ Edit Profile
+
+            </a>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="profile-stats">
+
+            <div class="profile-stat">
+
+                <span class="stat-icon">
+                    ⭐
+                </span>
+
+                <div>
+                    <h3>
+                        {{ user[7] }}
+                    </h3>
+
+                    <p>
+                        Skill Points
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="profile-stat">
+
+                <span class="stat-icon">
+                    🏆
+                </span>
+
+                <div>
+                    <h3>
+                        Beginner
+                    </h3>
+
+                    <p>
+                        Current Level
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="profile-stat">
+
+                <span class="stat-icon">
+                    🔄
+                </span>
+
+                <div>
+                    <h3>
+                        0
+                    </h3>
+
+                    <p>
+                        Sessions Completed
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section class="skills-container">
+
+
+            <!-- TEACH -->
+
+            <div class="profile-card">
+
+                <div class="card-title">
+
+                    <span>
+                        🧑‍🏫
+                    </span>
+
+                    <h2>
+                        I Can Teach
+                    </h2>
+
+                </div>
+
+                <div class="profile-skill">
+                    {{ user[4] }}
+                </div>
+
+                <p>
+                    This is the skill you can share
+                    with other students.
+                </p>
+
+            </div>
+
+
+            <!-- LEARN -->
+
+            <div class="profile-card">
+
+                <div class="card-title">
+
+                    <span>
+                        📚
+                    </span>
+
+                    <h2>
+                        I Want To Learn
+                    </h2>
+
+                </div>
+
+                <div class="profile-skill">
+                    {{ user[5] }}
+                </div>
+
+                <p>
+                    This is the skill you want to
+                    learn from another student.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ACCOUNT ================= -->
+
+        <section class="account-card">
+
+            <h2>
+                Account Information
+            </h2>
+
+            <div class="account-row">
+
+                <span>
+                    Full Name
+                </span>
+
+                <strong>
+                    {{ user[1] }}
+                </strong>
+
+            </div>
+
+
+            <div class="account-row">
+
+                <span>
+                    Email Address
+                </span>
+
+                <strong>
+                    {{ user[2] }}
+                </strong>
+
+            </div>
+
+
+            <div class="account-row">
+
+                <span>
+                    Skill Level
+                </span>
+
+                <strong>
+                    {{ user[6].title() }}
+                </strong>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 SkillLoop. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

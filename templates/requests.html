@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Connection Requests - SkillLoop</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='requests_style.css') }}">
+
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Skill<span>Loop</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('matches') }}">
+                Matches
+            </a>
+
+            <a href="{{ url_for('progress') }}">
+                Progress
+            </a>
+
+            <a href="{{ url_for('profile') }}">
+                Profile
+            </a>
+
+            <a href="{{ url_for('logout') }}"
+               class="logout-btn">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="requests-container">
+
+
+        <!-- ================= FLASH MESSAGE ================= -->
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                {% for category, message in messages %}
+
+                    <div class="flash-message {{ category }}">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <!-- ================= HEADER ================= -->
+
+        <div class="requests-header">
+
+            <p class="tagline">
+                CONNECTIONS
+            </p>
+
+            <h1>
+                Connection Requests 🤝
+            </h1>
+
+            <p>
+                Manage students who want to start a skill exchange with you.
+            </p>
+
+        </div>
+
+
+        <!-- ================= REQUEST LIST ================= -->
+
+        <section class="request-list">
+
+
+            {% if requests %}
+
+
+                {% for request in requests %}
+
+
+                    <!-- ================= REQUEST CARD ================= -->
+
+                    <div class="request-card">
+
+
+                        <!-- ================= AVATAR ================= -->
+
+                        <div class="request-avatar">
+
+                            {{ request[1][0].upper() }}
+
+                        </div>
+
+
+                        <!-- ================= USER INFO ================= -->
+
+                        <div class="request-info">
+
+                            <h2>
+                                {{ request[1] }}
+                            </h2>
+
+                            <p>
+                                {{ request[2] }}
+                            </p>
+
+
+                            <div class="request-skills">
+
+                                <span>
+
+                                    🧑‍🏫 Can Teach:
+
+                                    <strong>
+                                        {{ request[3] }}
+                                    </strong>
+
+                                </span>
+
+
+                                <span>
+
+                                    📚 Wants To Learn:
+
+                                    <strong>
+                                        {{ request[4] }}
+                                    </strong>
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ================= ACTIONS ================= -->
+
+                        <div class="request-actions">
+
+
+                            {% if request[6] == "pending" %}
+
+
+                                <a
+                                    href="{{ url_for('accept_request', request_id=request[5]) }}"
+                                    class="accept-btn"
+                                >
+
+                                    Accept
+
+                                </a>
+
+
+                                <a
+                                    href="{{ url_for('reject_request', request_id=request[5]) }}"
+                                    class="reject-btn"
+                                >
+
+                                    Reject
+
+                                </a>
+
+
+                            {% elif request[6] == "accepted" %}
+
+
+                                <span class="accepted-status">
+
+                                    ✓ Accepted
+
+                                </span>
+
+
+                            {% elif request[6] == "rejected" %}
+
+
+                                <span class="rejected-status">
+
+                                    ✕ Rejected
+
+                                </span>
+
+
+                            {% endif %}
+
+
+                        </div>
+
+
+                    </div>
+
+
+                {% endfor %}
+
+
+            {% else %}
+
+
+                <!-- ================= NO REQUESTS ================= -->
+
+                <div class="no-requests">
+
+                    <div class="no-request-icon">
+                        📭
+                    </div>
+
+                    <h2>
+                        No Connection Requests
+                    </h2>
+
+                    <p>
+                        You don't have any connection requests right now.
+                    </p>
+
+                    <a href="{{ url_for('matches') }}">
+                        Find Skill Matches →
+                    </a>
+
+                </div>
+
+
+            {% endif %}
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 SkillLoop. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

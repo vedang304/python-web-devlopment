@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - SkillLoop</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='dashboard_style.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Skill<span>Loop</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('matches') }}">
+                Matches
+            </a>
+
+            <a href="{{ url_for('requests') }}">
+                Requests
+            </a>
+
+            <a href="{{ url_for('progress') }}">
+                Progress
+            </a>
+
+            <a href="{{ url_for('profile') }}">
+                Profile
+            </a>
+
+            <a href="{{ url_for('logout') }}" class="logout-btn">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= DASHBOARD ================= -->
+
+    <main class="dashboard">
+
+        <!-- Welcome -->
+
+        <section class="welcome">
+
+            <p class="tagline">
+                YOUR SKILL JOURNEY
+            </p>
+
+            <h1>
+                Welcome, {{ user[1] }} 👋
+            </h1>
+
+            <p>
+                Learn, teach and grow with SkillLoop.
+            </p>
+
+        </section>
+
+
+        <!-- ================= STATS ================= -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⭐
+                </div>
+
+                <div>
+                    <h3>{{ user[7] }}</h3>
+                    <p>Skill Points</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏆
+                </div>
+
+                <div>
+                    <h3>Beginner</h3>
+                    <p>Current Level</p>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🔄
+                </div>
+
+                <div>
+                    <h3>0</h3>
+                    <p>Completed Sessions</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section class="skills-section">
+
+            <!-- I CAN TEACH -->
+
+            <div class="skill-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="card-icon">🧑‍🏫</span>
+
+                        <h2>I Can Teach</h2>
+                    </div>
+
+                </div>
+
+                <div class="skill-box">
+                    {{ user[4] }}
+                </div>
+
+                <p>
+                    Share your knowledge with another student.
+                </p>
+
+            </div>
+
+
+            <!-- I WANT TO LEARN -->
+
+            <div class="skill-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <span class="card-icon">📚</span>
+
+                        <h2>I Want To Learn</h2>
+                    </div>
+
+                </div>
+
+                <div class="skill-box">
+                    {{ user[5] }}
+                </div>
+
+                <p>
+                    Find someone who can help you learn this skill.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= MATCH ================= -->
+
+        <section class="match-section">
+
+            <div class="match-content">
+
+                <div class="match-icon">
+                    🤝
+                </div>
+
+                <div>
+
+                    <h2>
+                        Find Your Skill Match
+                    </h2>
+
+                    <p>
+                        Connect with students who can teach
+                        what you want to learn and learn what
+                        you can teach.
+                    </p>
+
+                </div>
+
+                <a href="{{ url_for('matches') }}" class="match-btn">
+                    Find Matches →
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 SkillLoop. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

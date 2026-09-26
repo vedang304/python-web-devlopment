@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Profile - SkillLoop</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='edit-profile_style.css') }}">
+
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Skill<span>Loop</span>
+        </div>
+
+        <a href="{{ url_for('dashboard') }}"
+           class="back-link">
+
+            ← Back to Dashboard
+
+        </a>
+
+    </nav>
+
+
+    <!-- ================= EDIT SECTION ================= -->
+
+    <main class="edit-section">
+
+        <div class="edit-card">
+
+
+            <!-- HEADER -->
+
+            <div class="edit-header">
+
+                <div class="edit-icon">
+                    ⚙️
+                </div>
+
+                <h1>
+                    Edit Your Skills
+                </h1>
+
+                <p>
+                    Update your learning goals and skills.
+                </p>
+
+            </div>
+
+
+            <!-- ================= FORM ================= -->
+
+            <form method="POST">
+
+
+                <!-- I CAN TEACH -->
+
+                <div class="input-group">
+
+                    <label for="teach_skill">
+                        I Can Teach
+                    </label>
+
+                    <select
+                        id="teach_skill"
+                        name="teach_skill"
+                        required
+                    >
+
+                        <option value="python"
+                            {% if user[4] == "python" %}
+                            selected
+                            {% endif %}>
+                            Python
+                        </option>
+
+                        <option value="web-development"
+                            {% if user[4] == "web-development" %}
+                            selected
+                            {% endif %}>
+                            Web Development
+                        </option>
+
+                        <option value="java"
+                            {% if user[4] == "java" %}
+                            selected
+                            {% endif %}>
+                            Java
+                        </option>
+
+                        <option value="javascript"
+                            {% if user[4] == "javascript" %}
+                            selected
+                            {% endif %}>
+                            JavaScript
+                        </option>
+
+                        <option value="c-cpp"
+                            {% if user[4] == "c-cpp" %}
+                            selected
+                            {% endif %}>
+                            C / C++
+                        </option>
+
+                        <option value="ui-ux"
+                            {% if user[4] == "ui-ux" %}
+                            selected
+                            {% endif %}>
+                            UI / UX Design
+                        </option>
+
+                        <option value="graphic-design"
+                            {% if user[4] == "graphic-design" %}
+                            selected
+                            {% endif %}>
+                            Graphic Design
+                        </option>
+
+                        <option value="video-editing"
+                            {% if user[4] == "video-editing" %}
+                            selected
+                            {% endif %}>
+                            Video Editing
+                        </option>
+
+                        <option value="other"
+                            {% if user[4] == "other" %}
+                            selected
+                            {% endif %}>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- I WANT TO LEARN -->
+
+                <div class="input-group">
+
+                    <label for="learn_skill">
+                        I Want To Learn
+                    </label>
+
+                    <select
+                        id="learn_skill"
+                        name="learn_skill"
+                        required
+                    >
+
+                        <option value="python"
+                            {% if user[5] == "python" %}
+                            selected
+                            {% endif %}>
+                            Python
+                        </option>
+
+                        <option value="web-development"
+                            {% if user[5] == "web-development" %}
+                            selected
+                            {% endif %}>
+                            Web Development
+                        </option>
+
+                        <option value="java"
+                            {% if user[5] == "java" %}
+                            selected
+                            {% endif %}>
+                            Java
+                        </option>
+
+                        <option value="javascript"
+                            {% if user[5] == "javascript" %}
+                            selected
+                            {% endif %}>
+                            JavaScript
+                        </option>
+
+                        <option value="c-cpp"
+                            {% if user[5] == "c-cpp" %}
+                            selected
+                            {% endif %}>
+                            C / C++
+                        </option>
+
+                        <option value="ui-ux"
+                            {% if user[5] == "ui-ux" %}
+                            selected
+                            {% endif %}>
+                            UI / UX Design
+                        </option>
+
+                        <option value="graphic-design"
+                            {% if user[5] == "graphic-design" %}
+                            selected
+                            {% endif %}>
+                            Graphic Design
+                        </option>
+
+                        <option value="video-editing"
+                            {% if user[5] == "video-editing" %}
+                            selected
+                            {% endif %}>
+                            Video Editing
+                        </option>
+
+                        <option value="other"
+                            {% if user[5] == "other" %}
+                            selected
+                            {% endif %}>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- SKILL LEVEL -->
+
+                <div class="input-group">
+
+                    <label for="skill_level">
+                        Skill Level
+                    </label>
+
+                    <select
+                        id="skill_level"
+                        name="skill_level"
+                        required
+                    >
+
+                        <option value="beginner"
+                            {% if user[6] == "beginner" %}
+                            selected
+                            {% endif %}>
+                            Beginner
+                        </option>
+
+                        <option value="intermediate"
+                            {% if user[6] == "intermediate" %}
+                            selected
+                            {% endif %}>
+                            Intermediate
+                        </option>
+
+                        <option value="advanced"
+                            {% if user[6] == "advanced" %}
+                            selected
+                            {% endif %}>
+                            Advanced
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- BUTTON -->
+
+                <button type="submit"
+                        class="save-button">
+
+                    Save Changes →
+
+                </button>
+
+            </form>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 SkillLoop. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

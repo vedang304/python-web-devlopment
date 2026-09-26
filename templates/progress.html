@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Progress - SkillLoop</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='progress_style.css') }}">
+
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Skill<span>Loop</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="#">
+                Matches
+            </a>
+
+            <a href="{{ url_for('progress') }}">
+                Progress
+            </a>
+
+            <a href="{{ url_for('profile') }}">
+                Profile
+            </a>
+
+            <a href="{{ url_for('logout') }}"
+               class="logout-btn">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= PROGRESS ================= -->
+
+    <main class="progress-container">
+
+
+        <!-- HEADER -->
+
+        <section class="progress-header">
+
+            <p class="tagline">
+                YOUR LEARNING JOURNEY
+            </p>
+
+            <h1>
+                Track Your Progress 📈
+            </h1>
+
+            <p>
+                Keep learning, complete sessions and improve your skills.
+            </p>
+
+        </section>
+
+
+        <!-- ================= MAIN SKILL ================= -->
+
+        <section class="progress-card">
+
+            <div class="progress-card-header">
+
+                <div>
+
+                    <span class="skill-icon">
+                        📚
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            {{ user[5] }}
+                        </h2>
+
+                        <p>
+                            Your current learning skill
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <span class="level-badge">
+                    {{ user[6].title() }}
+                </span>
+
+            </div>
+
+
+            <!-- PROGRESS BAR -->
+
+            <div class="progress-info">
+
+                <span>
+                    Learning Progress
+                </span>
+
+                <strong>
+                    0%
+                </strong>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill"
+                     style="width: 0%;">
+                </div>
+
+            </div>
+
+
+            <p class="progress-message">
+                Complete your first learning session to start
+                tracking your progress.
+            </p>
+
+        </section>
+
+
+        <!-- ================= ACTIVITY STATS ================= -->
+
+        <section class="activity-stats">
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🔄
+                </div>
+
+                <h3>
+                    0
+                </h3>
+
+                <p>
+                    Sessions Completed
+                </p>
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    📝
+                </div>
+
+                <h3>
+                    0
+                </h3>
+
+                <p>
+                    Assessments
+                </p>
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    {{ user[7] }}
+                </h3>
+
+                <p>
+                    Skill Points
+                </p>
+
+            </div>
+
+
+            <div class="activity-card">
+
+                <div class="activity-icon">
+                    🏅
+                </div>
+
+                <h3>
+                    0
+                </h3>
+
+                <p>
+                    Badges Earned
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= LEARNING ROADMAP ================= -->
+
+        <section class="roadmap-card">
+
+            <div class="section-heading">
+
+                <h2>
+                    Learning Roadmap
+                </h2>
+
+                <p>
+                    Your journey for {{ user[5] }}
+                </p>
+
+            </div>
+
+
+            <div class="roadmap">
+
+
+                <div class="roadmap-item completed">
+
+                    <div class="roadmap-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Basics
+                        </h3>
+
+                        <p>
+                            Build your foundation.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="roadmap-line"></div>
+
+
+                <div class="roadmap-item current">
+
+                    <div class="roadmap-icon">
+                        2
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Intermediate
+                        </h3>
+
+                        <p>
+                            Improve your practical skills.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="roadmap-line"></div>
+
+
+                <div class="roadmap-item locked">
+
+                    <div class="roadmap-icon">
+                        🔒
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Advanced
+                        </h3>
+
+                        <p>
+                            Unlock through learning sessions.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 SkillLoop. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

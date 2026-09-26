@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillLoop</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='index_style.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Skill<span>Loop</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+
+            <a href="#how-it-works">
+                How It Works
+            </a>
+
+            <a href="{{ url_for('login') }}">
+                Login
+            </a>
+
+            <a href="{{ url_for('register') }}" class="register-btn">
+                Get Started
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="tagline">
+                LEARN BY SHARING YOUR SKILLS
+            </p>
+
+            <h1>
+                Learn a Skill.
+                <span>Teach a Skill.</span>
+            </h1>
+
+            <p class="description">
+                SkillLoop connects students who want to learn
+                with students who already have the skills they need.
+                Exchange knowledge, improve your skills and grow together.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="{{ url_for('register') }}" class="primary-btn">
+                    Get Started →
+                </a>
+
+                <a href="#how-it-works" class="secondary-btn">
+                    Learn More
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO IMAGE -->
+
+        <div class="hero-image">
+
+            <img
+                id="heroImage"
+                src="{{ url_for('static', filename='index.png') }}"
+                alt="SkillLoop Skill Exchange"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= HOW IT WORKS ================= -->
+
+    <section class="features" id="how-it-works">
+
+        <h2>
+            How SkillLoop Works
+        </h2>
+
+        <p class="section-text">
+            Share what you know, learn what you need and grow together.
+        </p>
+
+
+        <div class="feature-container">
+
+            <div class="feature-card">
+
+                <div class="icon">🧑‍🏫</div>
+
+                <h3>
+                    Share Your Skills
+                </h3>
+
+                <p>
+                    Tell us what skills you can teach
+                    and what skills you want to learn.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">🤝</div>
+
+                <h3>
+                    Find Your Match
+                </h3>
+
+                <p>
+                    Find students whose skills complement
+                    your learning goals.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">🔄</div>
+
+                <h3>
+                    Exchange Skills
+                </h3>
+
+                <p>
+                    Teach your skill while learning
+                    something new from your partner.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="icon">🏆</div>
+
+                <h3>
+                    Earn & Grow
+                </h3>
+
+                <p>
+                    Complete sessions, perform well in assessments,
+                    earn points and climb the leaderboard.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <div class="about-content">
+
+            <p class="tagline">
+                ABOUT SKILLLOOP
+            </p>
+
+            <h2>
+                Learn Together.
+                <span>Grow Together.</span>
+            </h2>
+
+            <p>
+                SkillLoop is a student-focused platform where
+                students can exchange skills and learn from
+                each other.
+            </p>
+
+            <p>
+                Instead of paying for every skill they want to learn,
+                students can share their existing knowledge and
+                learn from someone who has the skill they need.
+            </p>
+
+            <p>
+                With assessments, ratings, skill points and rankings,
+                SkillLoop makes peer learning measurable and engaging.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="home-cta">
+
+        <h2>
+            Ready to Start Your SkillLoop?
+        </h2>
+
+        <p>
+            Teach what you know. Learn what you need.
+        </p>
+
+        <a href="{{ url_for('register') }}" class="primary-btn">
+            Join SkillLoop →
+        </a>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+            Skill<span>Loop</span>
+        </div>
+
+        <p>
+            A student-powered platform for skill exchange
+            and collaborative learning.
+        </p>
+
+        <p class="copyright">
+            © 2026 SkillLoop. All rights reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

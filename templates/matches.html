@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Matches - SkillLoop</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='matches_style.css') }}">
+
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Skill<span>Loop</span>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('matches') }}"
+               class="active">
+                Matches
+            </a>
+
+            <a href="{{ url_for('requests') }}">
+                Requests
+            </a>
+
+            <a href="{{ url_for('progress') }}">
+                Progress
+            </a>
+
+            <a href="{{ url_for('profile') }}">
+                Profile
+            </a>
+
+            <a href="{{ url_for('logout') }}"
+               class="logout-btn">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="matches-container">
+
+
+        <!-- ================= FLASH MESSAGE ================= -->
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                {% for category, message in messages %}
+
+                    <div class="flash-message {{ category }}">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <!-- ================= HEADER ================= -->
+
+        <section class="matches-header">
+
+            <p class="tagline">
+                SKILL DISCOVERY
+            </p>
+
+            <h1>
+                Find Your Skill Match 🤝
+            </h1>
+
+            <p>
+                Connect with students who can teach what
+                you want to learn and learn what you can teach.
+            </p>
+
+        </section>
+
+
+        <!-- ================= YOUR SKILLS ================= -->
+
+        <section class="your-skills">
+
+
+            <!-- I CAN TEACH -->
+
+            <div class="your-skill-card">
+
+                <span>
+                    🧑‍🏫
+                </span>
+
+                <div>
+
+                    <small>
+                        I Can Teach
+                    </small>
+
+                    <strong>
+                        {{ user[4] }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXCHANGE -->
+
+            <div class="exchange-icon">
+                ⇄
+            </div>
+
+
+            <!-- I WANT TO LEARN -->
+
+            <div class="your-skill-card">
+
+                <span>
+                    📚
+                </span>
+
+                <div>
+
+                    <small>
+                        I Want To Learn
+                    </small>
+
+                    <strong>
+                        {{ user[5] }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MATCH LIST ================= -->
+
+        <section class="match-list">
+
+
+            {% if matches %}
+
+
+                <h2>
+                    Your Matches
+                </h2>
+
+
+                {% for match_data in matches %}
+
+
+                    {% set match = match_data.user %}
+
+                    {% set request_data = match_data.request %}
+
+
+                    <!-- ================= MATCH CARD ================= -->
+
+                    <div class="match-card">
+
+
+                        <!-- ================= AVATAR ================= -->
+
+                        <div class="match-avatar">
+
+                            {{ match[1][0].upper() }}
+
+                        </div>
+
+
+                        <!-- ================= USER INFORMATION ================= -->
+
+                        <div class="match-info">
+
+                            <h3>
+                                {{ match[1] }}
+                            </h3>
+
+                            <p>
+                                {{ match[2] }}
+                            </p>
+
+
+                            <div class="match-skills">
+
+
+                                <span>
+
+                                    🧑‍🏫 Can Teach:
+
+                                    <strong>
+                                        {{ match[4] }}
+                                    </strong>
+
+                                </span>
+
+
+                                <span>
+
+                                    📚 Wants To Learn:
+
+                                    <strong>
+                                        {{ match[5] }}
+                                    </strong>
+
+                                </span>
+
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ================= STATUS ================= -->
+
+                        <div class="match-status">
+
+
+                            <!-- PERFECT MATCH -->
+
+                            <span class="perfect-match">
+
+                                ✓ Perfect Match
+
+                            </span>
+
+
+                            <!-- ================= REQUEST EXISTS ================= -->
+
+                            {% if request_data %}
+
+
+                                <!-- ================= PENDING ================= -->
+
+                                {% if request_data[1] == "pending" %}
+
+                                    <span class="pending-match">
+
+                                        ⏳ Request Sent
+
+                                    </span>
+
+
+                                <!-- ================= ACCEPTED ================= -->
+
+                                {% elif request_data[1] == "accepted" %}
+
+                                    <span class="accepted-match">
+
+                                        🤝 Connected
+
+                                    </span>
+
+
+                                <!-- ================= REJECTED ================= -->
+
+                                {% elif request_data[1] == "rejected" %}
+
+                                    <a
+                                        href="{{ url_for('send_request', receiver_id=match[0]) }}"
+                                        class="connect-btn"
+                                    >
+
+                                        Connect →
+
+                                    </a>
+
+                                {% endif %}
+
+
+                            <!-- ================= NO REQUEST ================= -->
+
+                            {% else %}
+
+                                <a
+                                    href="{{ url_for('send_request', receiver_id=match[0]) }}"
+                                    class="connect-btn"
+                                >
+
+                                    Connect →
+
+                                </a>
+
+                            {% endif %}
+
+
+                        </div>
+
+
+                    </div>
+
+
+                {% endfor %}
+
+
+            {% else %}
+
+
+                <!-- ================= NO MATCH ================= -->
+
+                <div class="no-match">
+
+
+                    <div class="no-match-icon">
+                        🔍
+                    </div>
+
+
+                    <h2>
+                        No Matches Found
+                    </h2>
+
+
+                    <p>
+                        We couldn't find a student who matches
+                        your current skill exchange.
+                    </p>
+
+
+                    <a href="{{ url_for('edit_profile') }}">
+
+                        Change My Skills
+
+                    </a>
+
+
+                </div>
+
+
+            {% endif %}
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 SkillLoop. All rights reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
